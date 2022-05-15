@@ -4,63 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Librarian</title>
-    <link th:href="@{css/librarian_menu.css}" href="/static/css/librarian_menu.css" rel="stylesheet">
+    <link th:href="@{/css/librarian_menu.css}" href="/static/css/librarian_menu.css" rel="stylesheet">
 </head>
 <body>
 <a href="https://front.codes/" class="logo" target="_blank">
-    <img src="https://assets.codepen.io/1462889/fcy.png" alt="">
+    <img class="logo-icon" th:src="@{/img/logo.png}">
 </a>
 
 <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
 <label for="menu-icon"></label>
 <nav class="nav">
     <ul class="pt-5">
-        <li><a href="#">Add a book</a></li>
+        <li><a th:href="@{/librarian/addBook}">Add a book</a></li>
         <li><a href="#">Add a genre</a></li>
         <li><a href="#">Show rented books</a></li>
         <li><a href="#">Search a book</a></li>
         <li><a href="#">Show information about program</a></li>
     </ul>
 </nav>
-
 <div class="section-center">
-    <table style="margin-right: auto;margin-left: auto">
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>Title</th>-->
-<!--                <th>Author</th>-->
-<!--                <th>Amount</th>-->
-<!--                <th>Year</th>-->
-<!--                <th>Rent Cost</th>-->
-<!--                <th>Sell Cost</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--            <tr th:each="book : ${books}">-->
-<!--                <td th:text="${book.getTitle()}"></td>-->
-<!--                <td th:text="${book.getAuthor()}"></td>-->
-<!--                <td th:text="${book.getAmount()}"></td>-->
-<!--                <td th:text="${book.getPublishingYear()}"></td>-->
-<!--                <td th:text="${book.getRentCost()}"></td>-->
-<!--                <td th:text="${book.getSellCost()}"></td>-->
-<!--            </tr>-->
-<!--        </tbody>-->
 
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.getName()}"></td>
-            <td th:text="${user.getSurname()}"></td>
+    <h3 style="padding-bottom: 300px">Librarian Panel</h3>
+    <h1 style="margin-left: auto;margin-right: auto">Welcome Librarian!</h1>
 
-        </tr>
-        </tbody>
-
-    </table>
 </div>
+
+
+
 </body>
 </html>

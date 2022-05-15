@@ -10,12 +10,13 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "publishing_date")
+    @Column(name = "publishing_year")
     private Integer publishingYear;
 
     @Column(name = "sell_cost")
@@ -33,7 +34,7 @@ public class Book {
     @JoinTable(name = "genre_book",joinColumns = @JoinColumn(name = "book_id"),inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genres;
 
-    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private Author author;
 
@@ -168,4 +169,8 @@ public class Book {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
+
+
+
 }
+

@@ -1,7 +1,9 @@
 package kg.library.spring.library_spring.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -20,12 +22,20 @@ public class Author {
 
     //=======Relationships=======
 
-    @OneToOne(mappedBy = "author")
-    private Book book;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books=new ArrayList<>();
 
     //=======Relationships=======
 
     public Author() {
+    }
+
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "fullname='" + fullname + '\'' +
+                '}';
     }
 
     public Long getId() {
@@ -52,11 +62,12 @@ public class Author {
         this.birthday = birthday;
     }
 
-    public Book getBook() {
-        return book;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
